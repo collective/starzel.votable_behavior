@@ -58,12 +58,13 @@ class Vote(object):
         return float(total_points) / total_votes
 
     def has_votes(self):
-        return len(self.annotations['votes']) != 0
+        return len(self.annotations.get('votes', [])) != 0
 
     def already_voted(self, request):
         return self._hash(request) in self.annotations['voted']
 
     def clear(self):
         annotations = IAnnotations(self.context)
-        annotations[KEY] = PersistentDict({'voted': PersistentList()})
+        annotations[KEY] = PersistentDict({'voted': PersistentList(),
+                                           'votes': PersistentDict()})
         self.annotations = annotations[KEY]
