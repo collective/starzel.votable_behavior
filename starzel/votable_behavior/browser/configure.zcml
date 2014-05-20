@@ -1,0 +1,32 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  i18n_domain="starzel.votable_behavior">
+
+  <browser:viewlet
+    name="voting"
+    for="starzel.votable_behavior.interfaces.IVotable"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+    layer="..interfaces.IVotableLayer"
+    class=".viewlets.Voting"
+    permission="zope2.View"
+    />
+
+  <browser:page
+    name="vote"
+    for="starzel.votable_behavior.interfaces.IVotable"
+    layer="..interfaces.IVotableLayer"
+    class=".vote.Vote"
+    permission="zope2.View"
+    />
+
+  <browser:page
+    name="clearvotes"
+    for="starzel.votable_behavior.interfaces.IVotable"
+    layer="..interfaces.IVotableLayer"
+    class=".vote.ClearVotes"
+    permission="zope2.ViewManagementScreens"
+    />
+
+
+</configure>

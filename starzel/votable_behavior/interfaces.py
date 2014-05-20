@@ -1,6 +1,10 @@
 # encoding=utf-8
 from zope.interface import Interface
 
+class IVotableLayer(Interface):
+    """Marker interface for the Browserlayer
+    """
+
 # Ivotable is the marker interface for contenttypes how support this behavior
 class IVotable(Interface):
     pass

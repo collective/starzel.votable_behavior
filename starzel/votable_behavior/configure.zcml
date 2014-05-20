@@ -14,7 +14,8 @@
   <grok:grok package="." />
 
   <include package=".behavior" />
-  
+  <include package=".browser" />
+
   <!-- Register an extension profile to make the product installable
        in Plone -->
   <genericsetup:registerProfile

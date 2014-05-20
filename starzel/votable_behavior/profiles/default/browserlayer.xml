@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<layers>
+  <layer name="starzel.votable_behavior"
+    interface="starzel.votable_behavior.interfaces.IVotableLayer" />
+</layers>
