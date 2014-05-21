@@ -7,6 +7,7 @@
     name="voting"
     for="starzel.votable_behavior.interfaces.IVotable"
     manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+    template="templates/voting_viewlet.pt"
     layer="..interfaces.IVotableLayer"
     class=".viewlets.Vote"
     permission="zope2.View"

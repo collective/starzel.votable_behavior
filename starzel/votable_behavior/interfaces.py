@@ -16,8 +16,8 @@ class IVotable(Interface):
 # adapter
 class IVoting(model.Schema):
 
-    form.omitted("votes")
-    form.omitted("voted")
+#    form.omitted("votes")
+#    form.omitted("voted")
     votes = schema.Dict(key_type=schema.TextLine(), value_type=schema.Int())
     voted = schema.List(value_type=schema.TextLine())
 
