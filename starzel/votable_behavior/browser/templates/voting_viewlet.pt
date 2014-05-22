@@ -6,13 +6,14 @@
     <div id="alreadyvoted" class="voting_option">
       You already voted this talk. Thank you!
     </div>
-    <div id="notyetvoted" class="voting_option">
+    <div id="notyetvoted" class="voting_option"
+            tal:condition="view/can_vote">
       What do you think of this talk?
       <div class="votes"><span id="voting_plus">+1</span> <span id="voting_neutral">0</span> <span id="voting_negative">-1</span>
       </div>
     </div>
     <div id="no_ratings" tal:condition="not: view/has_votes">
-      This talk has not been voted yet. Be the first!
+      This talk has not been voted yet.<span tal:omit-tag="" tal:condition="view/can_vote"> Be the first!</span>
     </div>
     <div id="delete_votings" tal:condition="view/is_manager">
       Delete all votings

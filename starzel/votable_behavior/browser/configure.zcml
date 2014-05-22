@@ -10,7 +10,7 @@
     template="templates/voting_viewlet.pt"
     layer="..interfaces.IVotableLayer"
     class=".viewlets.Vote"
-    permission="zope2.View"
+    permission="starzel.votable_behavior.view_vote"
     />
 
   <browser:page
@@ -18,7 +18,7 @@
     for="starzel.votable_behavior.interfaces.IVotable"
     layer="..interfaces.IVotableLayer"
     class=".vote.Vote"
-    permission="zope2.View"
+    permission="starzel.votable_behavior.do_vote"
     />
 
   <browser:page

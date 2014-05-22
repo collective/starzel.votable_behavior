@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="starzel.votable_behavior: View Vote" acquire="True">
+      <role name="Anonymous"/>
+    </permission>
+    <permission name="starzel.votable_behavior: Do Vote" acquire="True">
+      <role name="Anonymous"/>
+    </permission>
+  </permissions>
+</rolemap>

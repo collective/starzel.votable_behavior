@@ -2,7 +2,7 @@
 from plone.app.layout.viewlets import common as base
 from Products.CMFCore.permissions import ViewManagementScreens
 from Products.CMFCore.utils import getToolByName
-
+from starzel.votable_behavior import DoVote
 from starzel.votable_behavior.interfaces import IVoting
 
 
@@ -10,6 +10,7 @@ class Vote(base.ViewletBase):
 
     vote = None
     is_manager = None
+    can_vote = None
 
     # Update methods are guaranteed to be called before rendering for
     # Viewlets and Portlets (Because they are IContentProvider objects)
@@ -23,6 +24,8 @@ class Vote(base.ViewletBase):
             membership_tool = getToolByName(self.context, 'portal_membership')
             self.is_manager = membership_tool.checkPermission(
                 ViewManagementScreens, self.context)
+            self.can_vote = membership_tool.checkPermission(
+                DoVote, self.context)
 
     def voted(self):
         return self.vote.already_voted(self.request)
