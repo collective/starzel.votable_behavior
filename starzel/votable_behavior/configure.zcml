@@ -10,6 +10,16 @@
   <!-- Include configuration for dependencies listed in setup.py -->
   <includeDependencies package="." />
 
+  <permission
+      id="starzel.votable_behavior.view_vote"
+      title="starzel.votable_behavior: View Vote"
+      />
+
+  <permission
+      id="starzel.votable_behavior.do_vote"
+      title="starzel.votable_behavior: Do Vote"
+      />
+
   <browser:resourceDirectory
     name="starzel.votable_behavior"
     directory="resources" />
@@ -27,14 +37,5 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <permission
-      id="starzel.votable_behavior.view_vote"
-      title="starzel.votable_behavior: View Vote"
-      />
-
-  <permission
-      id="starzel.votable_behavior.do_vote"
-      title="starzel.votable_behavior: Do Vote"
-      />
 
 </configure>
