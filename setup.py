@@ -26,7 +26,6 @@ setup(name='starzel.votable_behavior',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'PasteScript',
           'plone.app.dexterity',
           'plone.app.referenceablebehavior',
           'plone.app.relationfield',
