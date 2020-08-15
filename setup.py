@@ -27,7 +27,6 @@ setup(name='starzel.votable_behavior',
       install_requires=[
           'setuptools',
           'plone.app.dexterity',
-          'plone.app.referenceablebehavior',
           'plone.app.relationfield',
           'plone.namedfile [blobs]',
           'z3c.autoinclude',

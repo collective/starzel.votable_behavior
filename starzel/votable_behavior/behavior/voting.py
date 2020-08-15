@@ -2,6 +2,7 @@
 from hashlib import md5
 from persistent.dict import PersistentDict
 from persistent.list import PersistentList
+from Products.CMFPlone.utils import safe_bytes
 from zope.annotation.interfaces import IAnnotations
 
 # The key must be unique. Using the class name with the complete module name
@@ -28,10 +29,10 @@ class Vote(object):
         only a single person of a big company to vote
         """
         hash = md5()
-        hash.update(request.getClientAddr())
+        hash.update(safe_bytes(request.getClientAddr()))
         for key in ["User-Agent", "Accept-Language",
                     "Accept-Encoding"]:
-            hash.update(request.getHeader(key))
+            hash.update(safe_bytes(request.getHeader(key)))
         return hash.hexdigest()
 
     def vote(self, vote, request):

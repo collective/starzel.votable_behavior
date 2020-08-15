@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="plone">
+
+ <!-- the voting bundle -->
+ <records prefix="plone.bundles/voting-bundle"
+          interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+   <value key="resources">
+     <element>voting-main</element>
+   </value>
+   <value key="enabled">True</value>
+   <value key="compile">True</value>
+   <value key="csscompilation">++resource++starzel.votable_behavior/starzel_votablebehavior.css</value>
+   <value key="jscompilation">++resource++starzel.votable_behavior/starzel_votablebehavior.js</value>
+   <value key="last_compilation"></value>
+ </records>
+
+</registry>
