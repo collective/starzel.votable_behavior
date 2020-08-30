@@ -32,7 +32,9 @@ class Vote(object):
         hash.update(safe_bytes(request.getClientAddr()))
         for key in ["User-Agent", "Accept-Language",
                     "Accept-Encoding"]:
-            hash.update(safe_bytes(request.getHeader(key)))
+            val = safe_bytes(request.getHeader(key))
+            if val:
+                hash.update(val)
         return hash.hexdigest()
 
     def vote(self, vote, request):

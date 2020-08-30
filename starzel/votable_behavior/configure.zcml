@@ -26,6 +26,7 @@
 
   <include package=".behavior" />
   <include package=".browser" />
+  <include package=".restapi" />
 
   <!-- Register an extension profile to make the product installable
        in Plone -->
