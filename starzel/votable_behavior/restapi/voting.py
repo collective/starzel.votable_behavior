@@ -12,7 +12,7 @@ class Vote(Service):
 
     def reply(self):
 
-        can_vote = not api.user.is_anonymous() and api.user.has_permission(DoVote, self.context)
+        can_vote = not api.user.is_anonymous() and api.user.has_permission(DoVote, obj=self.context)
         if can_vote:
             voting = IVoting(self.context)
             data = json_body(self.request)
@@ -43,7 +43,7 @@ def vote_info(obj, request=None):
     if not request:
         request = getRequest()
     voting = IVoting(obj)
-    can_vote = not api.user.is_anonymous() and api.user.has_permission(DoVote, obj)
+    can_vote = not api.user.is_anonymous() and api.user.has_permission(DoVote, obj=obj)
     info = {
         'average_vote': voting.average_vote(),
         'has_votes': voting.has_votes(),
