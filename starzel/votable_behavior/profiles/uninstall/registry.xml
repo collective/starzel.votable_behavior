@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="plone">
+
+ <!-- the voting bundle -->
+ <records remove="true" prefix="plone.bundles/voting-bundle"
+          interface='Products.CMFPlone.interfaces.IBundleRegistry' />
+
+</registry>
