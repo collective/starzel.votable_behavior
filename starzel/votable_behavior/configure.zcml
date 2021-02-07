@@ -36,6 +36,13 @@
       description="Extension profile for voting behavior"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
-
+      
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Starzel votable behavior (uninstall)"
+      directory="profiles/uninstall"
+      description="Uninstalls the Starzel voting behavior add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
 
 </configure>
