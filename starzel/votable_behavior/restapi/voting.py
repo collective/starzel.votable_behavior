@@ -7,12 +7,14 @@ from starzel.votable_behavior import DoVote
 from starzel.votable_behavior.interfaces import IVoting
 from zope.globalrequest import getRequest
 from zExceptions import Unauthorized
+from zope.interface import alsoProvides
 
 
 class Vote(Service):
     """Vote for an object"""
 
     def reply(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
         can_vote = not api.user.is_anonymous() and api.user.has_permission(DoVote, obj=self.context)
         if not can_vote:
             raise Unauthorized("User not authorized to vote.")
@@ -28,6 +30,7 @@ class Delete(Service):
     """Unlock an object"""
 
     def reply(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
         can_vote = not api.user.is_anonymous() and api.user.has_permission(DoVote, obj=self.context)
         if not can_vote:
             raise Unauthorized("User not authorized to delete votes.")
