@@ -52,11 +52,13 @@ def vote_info(obj, request=None):
         request = getRequest()
     voting = IVoting(obj)
     can_vote = not api.user.is_anonymous() and api.user.has_permission(DoVote, obj=obj)
+    can_clear_votes = any(role in api.user.get_roles() for role in ['Manager', 'Site Manager'])
     info = {
         'average_vote': voting.average_vote(),
         'total_votes': voting.total_votes(),
         'has_votes': voting.has_votes(),
         'already_voted': voting.already_voted(request),
         'can_vote': can_vote,
+        'can_clear_votes': can_clear_votes,
     }
     return info
