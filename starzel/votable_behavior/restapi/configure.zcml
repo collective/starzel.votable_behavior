@@ -4,11 +4,19 @@
     xmlns:zcml="http://namespaces.zope.org/zcml">
 
   <plone:service
+    method="GET"
+    name="@votes"
+    for="starzel.votable_behavior.interfaces.IVotable"
+    factory=".voting.Votes"
+    permission="zope2.View"
+    />
+
+  <plone:service
     method="POST"
     name="@votes"
     for="starzel.votable_behavior.interfaces.IVotable"
     factory=".voting.Vote"
-    permission="cmf.ModifyPortalContent"
+    permission="zope2.View"
     />
 
   <plone:service
@@ -16,14 +24,6 @@
     name="@votes"
     for="starzel.votable_behavior.interfaces.IVotable"
     factory=".voting.Delete"
-    permission="cmf.ModifyPortalContent"
-    />
-
-  <plone:service
-    method="GET"
-    name="@votes"
-    for="starzel.votable_behavior.interfaces.IVotable"
-    factory=".voting.Votes"
     permission="zope2.View"
     />
 
