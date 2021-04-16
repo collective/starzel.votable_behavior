@@ -66,6 +66,9 @@ class Vote(object):
         else:
             votes[vote] += 1
 
+    def total_votes(self):
+        return sum(self.annotations.get('votes', {}).values())
+
     def average_vote(self):
         total_votes = sum(self.annotations.get('votes', {}).values())
         if total_votes == 0:
