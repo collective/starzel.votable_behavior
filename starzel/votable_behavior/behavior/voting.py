@@ -1,9 +1,13 @@
 # encoding=utf-8
+from starzel.votable_behavior.interfaces import IVotable, IVoting
 from hashlib import md5
 from persistent.dict import PersistentDict
 from persistent.list import PersistentList
 from Products.CMFPlone.utils import safe_bytes
 from zope.annotation.interfaces import IAnnotations
+from zope.component import adapter
+from zope.interface import implementer
+
 
 # The key must be unique. Using the class name with the complete module name
 # is a good idea. But be careful, you might want to change the key if you move
@@ -11,6 +15,8 @@ from zope.annotation.interfaces import IAnnotations
 KEY = "starzel.votable_behavior.behavior.voting.Vote"
 
 
+@implementer(IVoting)
+@adapter(IVotable)
 class Vote(object):
     def __init__(self, context):
         self.context = context
@@ -22,6 +28,14 @@ class Vote(object):
                 'votes': PersistentDict()
                 })
         self.annotations = annotations[KEY]
+
+    @property
+    def votes(self):
+        return self.annotations['votes']
+
+    @property
+    def voted(self):
+        return self.annotations['voted']
 
     def _hash(self, request):
         """
@@ -46,22 +60,22 @@ class Vote(object):
             # What happens if you catch them?
             raise KeyError("You may not vote twice")
         self.annotations['voted'].append(self._hash(request))
-        votes = self.annotations['votes']
+        votes = self.annotations.get('votes', {})
         if vote not in votes:
             votes[vote] = 1
         else:
             votes[vote] += 1
 
     def average_vote(self):
-        total_votes = sum(self.annotations['votes'].values())
+        total_votes = sum(self.annotations.get('votes', {}).values())
         if total_votes == 0:
             return 0
         total_points = sum([vote * count for (vote, count) in
-                            self.annotations['votes'].items()])
+                            self.annotations.get('votes', {}).items()])
         return float(total_points) / total_votes
 
     def has_votes(self):
-        return len(self.annotations.get('votes', [])) != 0
+        return len(self.annotations.get('votes', {})) != 0
 
     def already_voted(self, request):
         return self._hash(request) in self.annotations['voted']
