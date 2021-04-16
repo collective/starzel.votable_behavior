@@ -16,7 +16,7 @@
       This talk has not been voted yet.<span tal:omit-tag="" tal:condition="view/can_vote"> Be the first!</span>
     </div>
     <div id="delete_votings" tal:condition="view/is_manager">
-      Delete all votings
+      Delete all votings of this item
     </div>
     <div id="delete_votings2" class="areyousure warning"
          tal:condition="view/is_manager"
