@@ -32,9 +32,9 @@
        in Plone -->
   <genericsetup:registerProfile
       name="default"
-      title="Starzel votable behavior"
+      title="Votable behavior"
       directory="profiles/default"
-      description="Extension profile for voting behavior"
+      description="Install votable behavior. Part of Training Mastering Plone Development"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
       
