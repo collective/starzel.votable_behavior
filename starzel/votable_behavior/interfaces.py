@@ -7,6 +7,7 @@ from plone.supermodel import directives
 from zope import schema
 from zope.interface import alsoProvides
 from zope.interface import Interface
+from zope.interface import provider
 
 class IVotableLayer(Interface):
     """Marker interface for the Browserlayer
@@ -18,6 +19,7 @@ class IVotable(Interface):
 
 # This is the behaviors interface. When doing IVoting(object),you receive an
 # adapter
+@provider(IFormFieldProvider)
 class IVoting(model.Schema):
     if not api.env.debug_mode():
         form.omitted("votes")
@@ -32,9 +34,13 @@ class IVoting(model.Schema):
     votes = schema.Dict(title=u"Vote info",
                         key_type=schema.TextLine(title=u"Voted number"),
                         value_type=schema.Int(title=u"Voted so often"),
+                        default={},
+                        missing_value={},
                         required=False)
     voted = schema.List(title=u"Vote hashes",
                         value_type=schema.TextLine(),
+                        default=[],
+                        missing_value=[],
                         required=False)
 
     def vote(request):
@@ -63,5 +69,3 @@ class IVoting(model.Schema):
         """
         Clear the votes. Should only be called by admins
         """
-
-alsoProvides(IVoting, IFormFieldProvider)

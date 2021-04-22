@@ -37,3 +37,8 @@
 .voting #voting_negative {
     background-color: red;
 }
+
+#delete_votings,
+#delete_votings2 {
+    cursor: pointer;
+}

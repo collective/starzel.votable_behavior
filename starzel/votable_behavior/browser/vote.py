@@ -20,5 +20,5 @@ class ClearVotes(BrowserPage):
         voting = IVoting(self.context)
         voting.clear()
         notify(ObjectModifiedEvent(self.context,
-                                   "All votes have been removed"))
+                                   "All votes of this item have been removed"))
         return "success"
