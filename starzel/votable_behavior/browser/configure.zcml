@@ -5,7 +5,7 @@
 
   <browser:viewlet
     name="voting"
-    for="starzel.votable_behavior.interfaces.IVotable"
+    for="starzel.votable_behavior.behavior.interfaces.IVotable"
     manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
     template="templates/voting_viewlet.pt"
     layer="..interfaces.IVotableLayer"
@@ -15,7 +15,7 @@
 
   <browser:page
     name="vote"
-    for="starzel.votable_behavior.interfaces.IVotable"
+    for="starzel.votable_behavior.behavior.interfaces.IVotable"
     layer="..interfaces.IVotableLayer"
     class=".vote.Vote"
     permission="starzel.votable_behavior.do_vote"
@@ -23,7 +23,7 @@
 
   <browser:page
     name="clearvotes"
-    for="starzel.votable_behavior.interfaces.IVotable"
+    for="starzel.votable_behavior.behavior.interfaces.IVotable"
     layer="..interfaces.IVotableLayer"
     class=".vote.ClearVotes"
     permission="zope2.ViewManagementScreens"

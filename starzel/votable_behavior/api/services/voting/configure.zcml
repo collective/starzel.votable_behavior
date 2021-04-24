@@ -6,7 +6,7 @@
   <plone:service
     method="GET"
     name="@votes"
-    for="starzel.votable_behavior.interfaces.IVotable"
+    for="starzel.votable_behavior.behavior.interfaces.IVotable"
     factory=".voting.Votes"
     permission="zope2.View"
     />
@@ -14,7 +14,7 @@
   <plone:service
     method="POST"
     name="@votes"
-    for="starzel.votable_behavior.interfaces.IVotable"
+    for="starzel.votable_behavior.behavior.interfaces.IVotable"
     factory=".voting.Vote"
     permission="zope2.View"
     />
@@ -22,7 +22,7 @@
   <plone:service
     method="DELETE"
     name="@votes"
-    for="starzel.votable_behavior.interfaces.IVotable"
+    for="starzel.votable_behavior.behavior.interfaces.IVotable"
     factory=".voting.Delete"
     permission="zope2.View"
     />

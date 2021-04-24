@@ -4,7 +4,7 @@ from plone.protect.interfaces import IDisableCSRFProtection
 from plone.restapi.deserializer import json_body
 from plone.restapi.services import Service
 from starzel.votable_behavior import DoVote
-from starzel.votable_behavior.interfaces import IVoting
+from starzel.votable_behavior.behavior.interfaces import IVoting
 from zope.globalrequest import getRequest
 from zExceptions import Unauthorized
 from zope.interface import alsoProvides

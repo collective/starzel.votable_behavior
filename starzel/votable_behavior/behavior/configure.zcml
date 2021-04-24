@@ -5,9 +5,9 @@
   <plone:behavior
       title="Voting"
       description="Allow voting for an item"
-      provides="starzel.votable_behavior.interfaces.IVoting"
+      provides="starzel.votable_behavior.behavior.interfaces.IVoting"
       factory=".voting.Vote"
-      marker="starzel.votable_behavior.interfaces.IVotable"
+      marker="starzel.votable_behavior.behavior.interfaces.IVotable"
       />
 
 </configure>

@@ -1,5 +1,5 @@
 # encoding=utf-8
-from starzel.votable_behavior.interfaces import IVotable, IVoting
+from starzel.votable_behavior.behavior.interfaces import IVotable, IVoting
 from hashlib import md5
 from persistent.dict import PersistentDict
 from persistent.list import PersistentList
@@ -18,6 +18,10 @@ KEY = "starzel.votable_behavior.behavior.voting.Vote"
 @implementer(IVoting)
 @adapter(IVotable)
 class Vote(object):
+    """This is an adapter.
+    
+    The adapter implements the methods promised by Interface IVoting.
+    """
     def __init__(self, context):
         self.context = context
         annotations = IAnnotations(context)
@@ -73,8 +77,11 @@ class Vote(object):
         total_votes = sum(self.annotations.get('votes', {}).values())
         if total_votes == 0:
             return 0
+        print("[vote * count for (vote, count) in self.annotations.get('votes', {}).items()]")
+        print([vote * count for (vote, count) in self.annotations.get('votes', {}).items()])
+        import pdb; pdb.set_trace()
         total_points = sum([vote * count for (vote, count) in
-                            self.annotations.get('votes', {}).items()])
+            self.annotations.get('votes', {}).items()])
         return float(total_points) / total_votes
 
     def has_votes(self):

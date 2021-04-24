@@ -1,5 +1,5 @@
 # encoding=utf-8
-from starzel.votable_behavior.interfaces import IVoting
+from starzel.votable_behavior.behavior.interfaces import IVoting
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
 from zope.publisher.browser import BrowserPage

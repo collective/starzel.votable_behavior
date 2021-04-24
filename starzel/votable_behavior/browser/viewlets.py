@@ -3,7 +3,7 @@ from plone.app.layout.viewlets import common as base
 from Products.CMFCore.permissions import ViewManagementScreens
 from Products.CMFCore.utils import getToolByName
 from starzel.votable_behavior import DoVote
-from starzel.votable_behavior.interfaces import IVoting
+from starzel.votable_behavior.behavior.interfaces import IVoting
 
 
 class Vote(base.ViewletBase):
