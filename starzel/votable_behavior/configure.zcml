@@ -8,7 +8,7 @@
     i18n_domain="starzel.votable_behavior">
 
   <!-- Include configuration for dependencies listed in setup.py -->
-  <includeDependencies package="." />
+  
 
   <permission
       id="starzel.votable_behavior.view_vote"
